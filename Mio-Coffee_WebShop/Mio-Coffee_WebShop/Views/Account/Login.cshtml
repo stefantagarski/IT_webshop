@@ -1,0 +1,133 @@
+﻿@using Mio_Coffee_WebShop.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in - Star-Food Ltd.";
+}
+<head>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;          
+            height: 100vh;
+        }
+
+        main {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h2 {
+            color: saddlebrown;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+            .form-group label {
+                font-weight: bold;
+            }
+
+        .form-control {
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 100%;
+            margin-left: 50px;
+        }
+
+
+        .text-danger {
+            color: red;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+            .login-link button {
+                background-color: transparent;
+                border: none;
+                color: saddlebrown;
+                cursor: pointer;
+                text-decoration: underline;
+            }
+
+                .login-link button:hover {
+                    color: #8b4513;
+                }
+
+        .checkbox {
+            display: flex;
+            align-items: center;
+        }
+
+            .checkbox input {
+                margin-right: 10px;
+            }
+    </style>
+</head>
+<body>
+    <main style="margin-left: 340px" aria-labelledby="title">
+        <h2 id="title">Log in</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <section id="loginForm">
+                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group row">
+                            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 col-form-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 col-form-label" })
+                            <div class="col-md-10">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="offset-md-2 col-md-10">
+                                <div class="checkbox">
+                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                    @Html.LabelFor(m => m.RememberMe)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="offset-md-2 col-md-10">
+                                <button style="margin-left:145px" type="submit" class="btn btn-outline-success">Log in</button>
+                            </div>
+                        </div>
+                        <div class="login-link">
+                            @{
+                                var registerUrl = Url.Action("Register", "Account");
+                            }
+                            Don't have an account?
+                            <button onclick="event.preventDefault(); window.location.href='@registerUrl'">Register as a new user</button>
+                        </div>
+                    }
+                </section>
+            </div>
+        </div>
+    </main>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</body>

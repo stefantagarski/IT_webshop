@@ -1,0 +1,192 @@
+﻿@model List<Mio_Coffee_WebShop.Models.CartItem>
+
+@{
+    ViewBag.Title = "Cart";
+}
+
+<div class="containerR mt-5">
+    <h2 class="text-center mb-4">Shopping Cart</h2>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    var quantity = item.Quantity > 0 ? item.Quantity : 1;
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>
+                            <input style="margin-right:-200px"
+                                   type="number"
+                                   class="form-control quantity-input"
+                                   data-id="@item.Id"
+                                   data-price="@item.Price"
+                                   value="@quantity"
+                                   min="1" />
+                        </td>
+                        <td>@item.Price.00 den</td>
+                        <td class="item-total-price">@((item.Price * quantity).ToString("0.00")) den</td>
+                        <td>
+                            <button data-id="@item.Id" class="btn btn-outline-danger delete-button"><i class="bi bi-trash"></i> Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12 text-right">
+            <h4>Total: <span id="cart-total">@Model.Sum(x => x.Price * (x.Quantity > 0 ? x.Quantity : 1)).ToString("0.00")</span></h4>
+            @if (Model.Sum(x => x.Price * (x.Quantity > 0 ? x.Quantity : 1)) > 0)
+            {
+                <a href="@Url.Action("Index", "Payment")" class="btn btn-outline-success mt-2">Checkout</a>
+            }
+            else
+            {
+                <button class="btn btn-outline-success mt-2" id="checkout-btn">Checkout</button>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+    $(document).ready(function () {
+        function updateCartTotal() {
+            let total = 0;
+            $('.item-total-price').each(function () {
+                total += parseFloat($(this).text());
+            });
+            $('#cart-total').text(total.toFixed(2) + ' den');
+        }
+
+        $('.quantity-input').on('input', function () {
+            var minValue = 1;
+            var value = $(this).val();
+            if (value < minValue) {
+                $(this).val(minValue);
+            }
+        });
+
+        $('.quantity-input').on('change', function () {
+            let quantity = $(this).val();
+            let price = $(this).data('price');
+            let id = $(this).data('id');
+            let itemTotal = (quantity * price).toFixed(2);
+
+            $(this).closest('tr').find('.item-total-price').text(itemTotal + ' den');
+
+            $.ajax({
+                url: '@Url.Action("UpdateQuantity", "Products")',
+                type: 'POST',
+                data: { id: id, quantity: quantity },
+                success: function (response) {
+                    if (response.success) {
+                        updateCartTotal();
+                    } else {
+                        bootbox.alert("Failed to update quantity.");
+                    }
+                }
+            });
+        });
+
+        $('.delete-button').click(function (e) {
+            e.preventDefault();
+            var productId = $(this).data('id');
+            $.ajax({
+                url: '@Url.Action("RemoveFromCart", "Products")',
+                type: 'POST',
+                data: { id: productId },
+                success: function (response) {
+                    if (response.success) {
+                        location.reload();
+                    } else {
+                        bootbox.alert("Failed to remove product from cart.");
+                    }
+                }
+            });
+        });
+
+        $('#checkout-btn').click(function () {
+            bootbox.alert("You have no products in the cart.");
+        });
+    });
+    </script>
+}
+
+<style>
+    body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    .containerR {
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .table {
+        margin-bottom: 0;
+    }
+
+        .table thead {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        .table td, .table th {
+            vertical-align: middle;
+            text-align: center;
+        }
+
+    .btn-outline-danger {
+        color: #dc3545;
+        border-color: #dc3545;
+    }
+
+        .btn-outline-danger:hover {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+
+    .mt-5 {
+        margin-top: 3rem;
+    }
+
+    .mt-4 {
+        margin-top: 1.5rem;
+    }
+
+    .mb-4 {
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-outline-success {
+        color: #28a745;
+        border-color: #28a745;
+    }
+
+        .btn-outline-success:hover {
+            background-color: #28a745;
+            color: #fff;
+        }
+</style>

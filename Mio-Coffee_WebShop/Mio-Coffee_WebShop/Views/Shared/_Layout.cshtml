@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        .italian-flag-navbar {
+            background: #F4EFE7;
+            color: saddlebrown;
+        }
+
+        .nav-item {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+            .nav-item:hover {
+                background-color: whitesmoke;
+            }
+
+            .nav-item a {
+                padding: 10px 15px;
+                color: saddlebrown;
+                text-decoration: none;
+            }
+
+                .nav-item a:hover {
+                    color: black;
+                }
+
+        .navbar-brand, .navbar-nav .nav-item {
+            color: saddlebrown;
+        }
+
+        .nav-link i {
+            margin-right: 5px;
+        }
+
+        .italic-text {
+            font-style: italic;
+        }
+
+        footer {
+            background: #F4EFE7;
+            color: saddlebrown;
+            font-weight: 500;
+            text-align: center;
+            font-family: inherit;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+            footer h2, footer h4 {
+                margin-bottom: 15px;
+            }
+
+            footer address {
+                margin-bottom: 15px;
+            }
+
+            footer .social-links a {
+                margin: 0 10px;
+                color: saddlebrown;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+                footer .social-links a:hover {
+                    color: black;
+                }
+
+            footer .map-container {
+                margin-top: 20px;
+            }
+
+                footer .map-container iframe {
+                    border: 0;
+                    width: 100%;
+                    max-width: 600px;
+                    height: 450px;
+                }
+
+            footer .logo {
+                margin-top: 20px;
+            }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm italian-flag-navbar">
+        <div class="container">
+            <a href="@Url.Action("Index", "Home", new { area = "" })" class="navbar-brand italian-flag-navbar italic-text">
+                <img style="width: 100px; position: relative; left: 20px;" src="~/images/mio_bcg.png" alt="Mio Coffee">
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1" style="padding: 15px">
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Coffees1")">
+                            <i class="bi bi-cup"></i> Coffee
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Machines")">
+                            <i class="bi bi-gear"></i> Machines
+                        </a>
+                    </li>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("AddUserToRole", "Account")">
+                                <i class="bi bi-person-plus"></i> Add User to Role
+                            </a>
+                        </li>
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <div style="float: left; margin-top: 105px; /* margin-right: 55px; */ margin-left: 124px;f"> 
+                <h2 id="title">Contact us!</h2>
+                <address>
+                    Goce Delcev 113A<br />
+                    2400, Strumica<br />
+                    <abbr title="Phone">P:</abbr>
+                    +389 34 344 544
+                </address>
+            
+            
+                <h4>Follow us on social media</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/starfood.mk"><i class="bi bi-facebook"></i> StarFood.mk</a>
+                    <a href="https://www.instagram.com/official.starfood/"><i class="bi bi-instagram"></i> official.starfood</a>
+                    <a href="mailto:tagarskis@gmail.com"><i class="bi bi-envelope"></i> Mail</a>
+                </div>
+            </div>
+            <div class="map-container">
+                <h4>Find us here</h4>
+                <iframe style="height: 315px; border-radius: 10px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.949160468969!2d22.650392575940703!3d41.44032477129322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a9fe6852303b79%3A0x80d1d7507f1ce093!2sBoulevard%20Goce%20Delchev%20113%2C%20Strumica%202400!5e0!3m2!1sen!2smk!4v1720381089353!5m2!1sen!2smk" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <hr />
+            <p>&copy; @DateTime.Now.Year - Star-Food Ltd. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,153 @@
+﻿@model Mio_Coffee_WebShop.Models.Coffee
+
+@{
+    ViewBag.Title = "Delete";
+}
+<div class="details-container">
+    <h4>Delete</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Origin)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Origin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Composition)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Composition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageURL)
+        </dt>
+        <dd>
+            <img src="@Model.ImageURL" alt="@Model.Name" class="coffee-image" />
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <button type="submit" class="btn btn-danger">Delete</button> |
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-success" })
+        </div>
+    }
+</div>
+
+<style>
+    .details-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .details-container h4 {
+        margin-bottom: 20px;
+        font-size: 1.8em;
+        color: #333;
+    }
+
+    .details-container hr {
+        border-top: 2px solid #e5e5e5;
+        width: 100%;
+    }
+
+    .dl-horizontal {
+        width: 100%;
+    }
+
+    .dl-horizontal dt, .dl-horizontal dd {
+        display: inline-block;
+        vertical-align: top;
+        width: 45%;
+        margin: 0;
+        padding: 10px;
+    }
+
+    .dl-horizontal dt {
+        text-align: left;
+        font-weight: bold;
+        color: #555;
+    }
+
+    .dl-horizontal dd {
+        text-align: left;
+        color: #333;
+    }
+
+    .coffee-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn {
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .btn-danger {
+        background-color: #d9534f;
+        color: #fff;
+        border: none;
+    }
+
+    .btn-danger:hover {
+        background-color: #c9302c;
+        transform: translateY(-2px);
+    }
+
+    .btn-outline-success {
+        background-color: transparent;
+        color: #5cb85c;
+        border: 1px solid #5cb85c;
+    }
+
+    .btn-outline-success:hover {
+        background-color: #5cb85c;
+        color: #fff;
+        transform: translateY(-2px);
+    }
+
+</style>

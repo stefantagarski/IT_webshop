@@ -1,0 +1,27 @@
+﻿@model Mio_Coffee_WebShop.Models.AddUserToRoleModel
+@{
+    ViewBag.Title = "AddUserToRole";
+}
+
+<h2 style="color: saddlebrown">Add User To Role</h2>
+
+@using (Html.BeginForm("AddUserToRole", "Account"))
+            {
+                <div style="color: saddlebrown" class="form-group">
+                    @Html.LabelFor(m => m.Email)
+                    @Html.TextBoxFor(m => m.Email, new{ @class = "form-control"})
+                    <br />
+                    @Html.LabelFor(m => m.SelectedRole)
+                    @Html.DropDownListFor(m => m.SelectedRole,
+                   new SelectList(Model.Roles), new {@class = "form-control"})
+                    <br />
+
+                    <button type="submit" class="btn btn-outline-success">Save</button>
+                </div>
+            }
+
+<style>
+    body{
+        background-color: #f4f4f4;
+    }
+</style>

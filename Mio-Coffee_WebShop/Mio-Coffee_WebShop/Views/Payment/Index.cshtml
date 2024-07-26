@@ -1,0 +1,187 @@
+﻿@{
+    ViewBag.Title = "Stripe Payment";
+}
+
+<header style="margin-left:305px"><img style="width: 205px" src="~/images/stripe_logo.png"/></header>
+
+<script src="https://js.stripe.com/v3/"></script>
+
+<style>
+    body {
+        font-family: 'Helvetica Neue', Helvetica, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+  
+    #payment-form {
+        background: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .form-row {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 14px;
+        color: #32325d;
+        margin-right: 80px
+    }
+
+    input, select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        margin-top: 5px;
+    }
+
+    #card-element {
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+    }
+
+    #card-errors {
+        color: #fa755a;
+        margin-top: 12px;
+    }
+
+    button {
+        background: #6772e5;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background: #5469d4;
+        }
+
+    #street {
+        margin-left: 19px;
+    }
+    #city {
+        margin-left: 32px;
+    }
+    #country {
+        margin-left: 8px;
+    }
+    #surname {
+
+    }
+    #name {
+        margin-left: 20px;
+    }
+</style>
+
+<form action="/Payment/Charge" method="post" id="payment-form">
+    <div class="form-row">
+        <label for="name">Name</label>
+        <input type="text" name="Name" id="name" required />
+    </div>
+    <div class="form-row">
+        <label for="surname">Surname</label>
+        <input type="text" name="Surname" id="surname" required />
+    </div>
+    <div class="form-row">
+        <label for="country">Country</label>
+        <input type="text" name="Country" id="country" required />
+    </div>
+    <div class="form-row">
+        <label for="city">City</label>
+        <input type="text" name="City" id="city" required />
+    </div>
+    <div class="form-row">
+        <label for="street">Street</label>
+        <input type="text" name="Street" id="street" required />
+    </div>
+    <div class="form-row">
+        <label for="street">Zip Code</label>
+        <input type="number" name="ZipCode" id="zipcode" required />
+    </div>
+    <div class="form-row">
+        <label for="card-element">Credit or Debit Card</label>
+        <div id="card-element">
+            <!-- A Stripe Element will be inserted here. -->
+        </div>
+        <!-- Used to display form errors. -->
+        <div id="card-errors" role="alert"></div>
+    </div>
+    <button type="submit">Submit Payment</button>
+    <input type="hidden" name="StripeToken" id="stripeToken" />
+</form>
+
+<script>
+    var stripe = Stripe('@ViewBag.StripePublishableKey');
+    var elements = stripe.elements();
+
+    var style = {
+        base: {
+            color: '#32325d',
+            fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+            fontSmoothing: 'antialiased',
+            fontSize: '16px',
+            '::placeholder': {
+                color: '#aab7c4'
+            }
+        },
+        invalid: {
+            color: '#fa755a',
+            iconColor: '#fa755a'
+        }
+    };
+
+    var card = elements.create('card', { style: style });
+    card.mount('#card-element');
+
+    card.addEventListener('change', function(event) {
+        var displayError = document.getElementById('card-errors');
+        if (event.error) {
+            displayError.textContent = event.error.message;
+        } else {
+            displayError.textContent = '';
+        }
+    });
+
+    var form = document.getElementById('payment-form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        stripe.createToken(card).then(function(result) {
+            if (result.error) {
+                var errorElement = document.getElementById('card-errors');
+                errorElement.textContent = result.error.message;
+            } else {
+                var hiddenInput = document.getElementById('stripeToken');
+                hiddenInput.value = result.token.id;
+                bootbox.confirm({
+                    message: "Are you sure you want to submit the payment?",
+                    buttons: {
+                        confirm: {
+                            label: 'Yes',
+                            className: 'btn-success'
+                        },
+                        cancel: {
+                            label: 'No',
+                            className: 'btn-danger'
+                        }
+                    },
+                    callback: function(result) {
+                        if (result) {
+                            form.submit();
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>

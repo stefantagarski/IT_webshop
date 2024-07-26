@@ -1,0 +1,135 @@
+﻿@model Mio_Coffee_WebShop.Models.Machines
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="details-container">
+    <h4>Details</h4>
+    <hr />
+    <div class="details-content">
+        <div class="details-text">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Brand)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Brand)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Usage)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Usage)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+            </dl>
+        </div>
+        <div class="details-image">
+            <img src="@Model.ImageURL" alt="@Model.Name" class="coffee-image" />
+            <p style="margin-right: 130px; margin-top: 20px; }">For more information click the <a href="https://www.nuovasimonelli.it/appialife/#brochure" style="color: darkgreen">link</a></p>
+        </div>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-success" })
+</p>
+
+<style>
+    .details-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+        .details-container h4 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            color: #333;
+            text-align: center;
+        }
+
+        .details-container hr {
+            border-top: 2px solid #e5e5e5;
+            width: 100%;
+        }
+
+    .details-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .details-text {
+        width: 60%;
+    }
+
+    .details-image {
+        width: 35%;
+        text-align: center;
+    }
+
+    .dl-horizontal dt, .dl-horizontal dd {
+        margin: 0;
+        padding: 10px 0;
+    }
+
+    .dl-horizontal dt {
+        font-weight: bold;
+        color: #555;
+    }
+
+    .dl-horizontal dd {
+        color: #333;
+    }
+
+    .coffee-image {
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        position: relative;
+        right: 98px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.2s, transform 0.2s;
+        display: inline-block;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .btn-outline-success {
+        background-color: transparent;
+        color: #5cb85c;
+        border: 1px solid #5cb85c;
+    }
+
+        .btn-outline-success:hover {
+            background-color: #5cb85c;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+</style>

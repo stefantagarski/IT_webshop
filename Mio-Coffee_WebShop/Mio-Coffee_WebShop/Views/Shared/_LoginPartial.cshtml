@@ -1,0 +1,68 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right; bi bi-person-walking" }))
+    {
+        @Html.AntiForgeryToken()
+
+<ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("Cart", "Products")">
+            <i class="bi bi-cart"></i> Cart
+        </a>
+    </li>
+    <li class="nav-item">
+        @Html.ActionLink("Logged as: " + User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
+    </li>
+    @*<li class="nav-item">
+        <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Log out</a>
+    </li>*@
+
+</ul>
+    }
+}
+else
+{
+<ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("Cart", "Products")">
+            <i class="bi bi-cart"></i> Cart
+        </a>
+    </li>
+    @*<li class="nav-item">
+        @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link bi bi-person-plus" })
+    </li>*@
+    <li class="nav-item">
+        @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link bi bi-person-circle" })
+    </li>
+</ul>
+}
+
+<style>
+    .navbar-nav .nav-link {
+        color: saddlebrown;
+        text-decoration: none;
+        padding: 10px 15px;
+    }
+
+        .navbar-nav .nav-link:hover {
+            color: darkorange;
+        }
+
+    .navbar-nav .nav-item {
+        margin-left: 15px;
+    }
+
+    #logoutForm {
+        display: inline;
+    }
+
+    .bi-person-plus::before {
+        margin-right: 7px;
+    }
+    .bi-person-circle::before {
+        margin-right: 7px;
+    }
+    
+
+</style>

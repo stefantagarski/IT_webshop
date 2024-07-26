@@ -1,0 +1,262 @@
+﻿@model IEnumerable<Mio_Coffee_WebShop.Models.Machines>
+
+@{
+    ViewBag.Title = "Coffee Machines - Shop";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 text-right">
+            @if (User.IsInRole("Admin"))
+            {
+                <a href="@Url.Action("Create", "Machines")" class="btn btn-outline-success">Create New</a>
+            }
+        </div>
+        <div class="col-md-6">
+            <div id="nesto" style="margin-left: 545px;">
+                <a id="filterButton" class="filter-link" href="#"><i class="bi bi-filter"></i>Filter</a>
+            </div>
+
+        </div>
+    </div>
+    <div id="filterPanel" class="filter-panel">
+        <button id="closeFilterPanel" class="close-button">&times;</button>
+        <h4>Filter Products</h4>
+        @using (Html.BeginForm("Index", "Machines", FormMethod.Get, new { id = "filterForm" }))
+        {
+            <div class="form-group">
+                @Html.Label("Name")
+                @Html.TextBox("name", Request.QueryString["name"], new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Brand")
+                @Html.DropDownList("type", new SelectList(ViewBag.Types as IEnumerable<string>), new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Price Range")
+                <div class="d-flex">
+                    @Html.TextBox("minPrice", Request.QueryString["minPrice"], new { @class = "form-control", placeholder = "Min" })
+                    @Html.TextBox("maxPrice", Request.QueryString["maxPrice"], new { @class = "form-control", placeholder = "Max" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Sort By")
+                @Html.DropDownList("sortOrder", new SelectList(new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "Name Ascending", Value = "name_asc" },
+                    new SelectListItem { Text = "Name Descending", Value = "name_desc" },
+                    new SelectListItem { Text = "Price Ascending", Value = "price_asc" },
+                    new SelectListItem { Text = "Price Descending", Value = "price_desc" }
+                }, "Value", "Text", ViewBag.CurrentSort), new { @class = "form-control" })
+            </div>
+            <button type="submit" class="btn btn-outline-success">Apply Filters</button>
+        }
+    </div>
+
+    <hr />
+    <div class="row mt-4">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3">
+                <div class="card mb-4">
+                    <img src="@item.ImageURL" alt="@item.Name" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <h6>By: @item.Brand</h6>
+                        <div class="card-buttons">
+                            @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-outline-success details" })
+                            <button data-id="@item.ID" class="btn btn-outline-success buy-button"><i class="bi bi-cart-plus"></i> Add to Cart - @item.Price.00 den</button>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-outline-primary" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-outline-danger" })
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#filterButton').click(function (e) {
+                e.preventDefault();
+                $('#filterPanel').show();
+            });
+
+            $('#closeFilterPanel').click(function () {
+                $('#filterPanel').hide();
+            });
+
+            $('.buy-button').click(function (e) {
+                e.preventDefault();
+                var isUserOrAdmin = '@((User.IsInRole("Admin") || User.IsInRole("User")) ? "true" : "false")';
+
+                if (isUserOrAdmin === "false") {
+                    bootbox.confirm({
+                        message: "You must be logged in to buy a product!",
+                        buttons: {
+                            confirm: {
+                                label: 'Login',
+                                className: 'btn-success'
+                            },
+                            cancel: {
+                                label: 'Cancel',
+                                className: 'btn-secondary'
+                            }
+                        },
+                        callback: function (result) {
+                            if (result) {
+                                window.location.href = '@Url.Action("Login", "Account")';
+                            }
+                        }
+                    });
+                }
+                else {
+                    var productId = $(this).data('id');
+                $.ajax({
+                    url: '@Url.Action("AddToCart1", "Products")',
+                    type: 'POST',
+                    data: { id: productId },
+                    success: function (response) {
+                        if (response.success) {
+                            bootbox.alert("Product added to cart successfully!");
+                        } else {
+                            bootbox.alert("Failed to add product to cart.");
+                        }
+                    }
+                });
+                }
+            });
+
+        });
+    </script>
+}
+
+<style>
+    body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+    .filter-panel {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100%;
+        background-color: #f4f4f4;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        z-index: 1000;
+        color: saddlebrown;
+    }
+
+    #filterButton {
+        color: saddlebrown;
+        font-family: inherit;
+        text-decoration: none;
+    }
+
+        #filterButton i {
+            margin-right: 5px;
+        }
+
+        #filterButton:hover {
+            text-decoration: underline;
+            font-size: 1.1em;
+            color: black;
+        }
+
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .filter-panel h4 {
+        margin-bottom: 20px;
+    }
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-around;
+    }
+
+    .card {
+        position: relative;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+        width: 100%;
+        max-width: 305px;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+    .card-img-top {
+    }
+
+    .card-body {
+        padding: 20px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card-title {
+        font-size: 1.5em;
+        margin-top: 0;
+    }
+
+    .card-buttons {
+        margin-top: 20px;
+    }
+
+    .details-button {
+        display: none;
+    }
+
+    .card:hover .details-button {
+        display: inline-block;
+    }
+
+    .btn {
+        margin-right: 10px;
+        margin-top: 15px;
+    }
+
+    .input-group {
+        left: 305px;
+        margin-top: 20px;
+    }
+
+    .input-group-text {
+        background-color: transparent;
+        border: none;
+    }
+
+        .input-group-text i {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+</style>

@@ -1,0 +1,206 @@
+﻿@{
+    ViewBag.Title = "About Us - Star-Food Ltd.";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Star-Food Ltd.</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333;
+        }
+
+        header {
+            background-color: inherit;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 1.5em;
+            color: saddlebrown;
+            border-radius: 10px;
+            margin-top: 6px;
+        }
+
+        #banner {
+            position: relative;
+            height: 620px;
+            width: 100%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+            #banner video {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                min-width: 100%;
+                min-height: 100%;
+                width: auto;
+                height: auto;
+                z-index: -1;
+                transform: translate(-50%, -50%);
+            }
+
+            #banner h1 {
+                font-size: 3em;
+                background-color: rgba(0, 0, 0, 0.5);
+                padding: 10px 20px;
+                border-radius: 10px;
+            }
+
+        .content {
+            padding: 50px 0;
+            display: flex;
+            align-items: center;
+        }
+
+            .content img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+
+        .quote {
+            font-style: italic;
+            margin: 20px 0;
+            color: saddlebrown;
+            border-left: 5px solid saddlebrown;
+            padding-left: 10px;
+            font-size: 1.1em;
+        }
+
+        p b {
+            color: saddlebrown;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+            color: saddlebrown;
+        }
+
+        .product-card {
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+            .product-card:hover {
+                transform: translateY(-10px);
+            }
+
+        .product-image {
+            border-radius: 10px;
+            width: 250px;
+            height: auto;
+        }
+
+        .product-title {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: saddlebrown;
+        }
+
+        .equal-height {
+            display: flex;
+        }
+
+            .equal-height > div {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                padding: 20px;
+            }
+
+            .equal-height img {
+                max-height: 100%;
+                width: auto;
+                border-radius: 10px;
+            }
+
+            .equal-height .text-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+        .full-width-video {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header><i>Explore our products</i></header>
+
+    <div class="containeR">
+        <div style="padding: 20px 0;"></div>
+
+        <div style="display: flex; justify-content: center; gap: 50px;">
+            <div class="product-card">
+                <a href="@Url.Action("Index", "Coffees1")" style="text-decoration: none;">
+                    <img src="~/images/mio_kafe.jpg" alt="Coffee" class="product-image" />
+                </a>
+                <p class="product-title">Coffee</p>
+            </div>
+
+            <div class="product-card">
+                <a href="@Url.Action("Index", "Machines")" style="text-decoration: none;">
+                    <img src="~/images/mio_machines.jpg" alt="Coffee Machines" class="product-image" />
+                </a>
+                <p class="product-title">Coffee Machines</p>
+            </div>
+        </div>
+
+        <div style="padding: 25px">
+            
+        </div>
+        <hr />
+        <h2 style="text-align: center"><i>About Us</i></h2>
+        <hr />
+
+        <div style="width: 1200px; margin-left: 55px;" class="row content">
+            <div class="col-md-6 order-md-1">
+                <img src="~/images/mio_logo.jpg" alt="Coffee Cup">
+            </div>
+            <div class="col-md-6 order-md-2">
+                <p class="quote">"The secret of the perfect cup of coffee lies in the attention, expertise, and dedication with which we treat each bean, in the familiar smell and taste complemented by the trust of consumers."</p>
+                <p><b>Star-Food Ltd.</b> was founded in 2007 in Strumica, Macedonia. Thanks to the quality, the wide range of products, and the top service, it has been building a success story in the Macedonian market for over 15 years. Led by the great experience gained with dedication and hard work, Star-Food in partnership with <b>Italy-ka S.r.l</b> from Italy invests capital and resources in a line for processing and packaging traditional Italian coffee and a line for the production and packaging of the highest quality espresso coffee and coffee drinks.</p>
+                <p>Today, Star Food is a company with the most modern technology and Italian style, creating a pleasant and comfortable environment for employees and customers.</p>
+            </div>
+        </div>
+
+        <div>
+            <video autoplay loop muted class="full-width-video">
+                <source src="~/videos/promotion.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div style="width: 1200px; margin-left: 55px;" class="row content">
+            <div class="col-md-6 order-md-2">
+                <img src="~/images/proizvodi.jpg" alt="Coffee Production">
+            </div>
+
+            <div class="col-md-6 order-md-1">
+                <h2>Our Journey</h2>
+                <p>Founded in 2007, Star-Food Ltd. has consistently delivered top-quality products and services. Our partnership with Italy-ka S.r.l from Italy has allowed us to invest in cutting-edge technology for processing and packaging traditional Italian coffee, as well as high-quality espresso coffee and coffee drinks.</p>
+                <p>Our dedication to quality and customer satisfaction has made us a leader in the Macedonian market for over 15 years. We pride ourselves on our modern technology and Italian style, which create a pleasant and comfortable environment for both employees and customers.</p>
+                <p><i>Designed and manufactured in Italy.</i></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

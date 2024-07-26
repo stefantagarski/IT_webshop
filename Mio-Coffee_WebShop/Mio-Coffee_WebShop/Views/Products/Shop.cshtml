@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Mio_Coffee_WebShop.Models.Product>
+
+@{
+    ViewBag.Title = "Shop - Star-Food Ltd.";
+}
+
+<header>Explore our products</header>
+
+<div style="padding: 10px"></div>
+
+<div style="display: flex; justify-content: center; gap: 50px;">
+    <div class="product-card">
+        <a href="@Url.Action("Index", "Coffees1")" style="text-decoration: none;">
+            <img src="~/images/mio_kafe.jpg" alt="Coffee" class="product-image" />
+        </a>
+        <p class="product-title">Coffee</p>
+    </div>
+
+    <div class="product-card">
+        <a href="@Url.Action("Index", "Machines")" style="text-decoration: none;">
+            <img src="~/images/mio_machines.jpg" alt="Coffee Machines" class="product-image" />
+        </a>
+        <p class="product-title">Coffee Machines</p>
+    </div>
+</div>
+
+<div style="padding: 25px"></div>
+
+<style>
+    body {
+        background-color: #f4f4f4;
+    }
+    header {
+        font-style: italic;
+        text-align: center;
+        color: saddlebrown;
+        font-size: 35px;
+        padding: 8px;
+        background: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+    .product-card {
+        text-align: center;
+        padding: 20px;
+        border: 2px solid #ddd;
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        background: #fff;
+    }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+    .product-image {
+        width: 300px;
+        height: auto;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .product-image {
+        transform: scale(1.1);
+    }
+
+    .product-title {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+</style>
