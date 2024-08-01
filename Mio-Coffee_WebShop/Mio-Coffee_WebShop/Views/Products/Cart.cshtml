@@ -49,11 +49,11 @@
             <h4>Total: <span id="cart-total">@Model.Sum(x => x.Price * (x.Quantity > 0 ? x.Quantity : 1)).ToString("0.00")</span></h4>
             @if (Model.Sum(x => x.Price * (x.Quantity > 0 ? x.Quantity : 1)) > 0)
             {
-                <a href="@Url.Action("Index", "Payment")" class="btn btn-outline-success mt-2">Checkout</a>
+                <a style="color:#2e8783" href="@Url.Action("Index", "Payment")" class="btn mt-2">Checkout</a>
             }
             else
             {
-                <button class="btn btn-outline-success mt-2" id="checkout-btn">Checkout</button>
+        <button style="color:#2e8783" class="btn mt-2" id="checkout-btn">Checkout</button>
             }
         </div>
     </div>
@@ -118,17 +118,37 @@
         });
 
         $('#checkout-btn').click(function () {
-            bootbox.alert("You have no products in the cart.");
+            bootbox.alert({
+                message: "Product added to cart successfully!",
+                buttons: {
+                    ok: {
+                        label: 'OK',
+                        className: 'btn kopce'
+                    }
+                }
+            });
         });
     });
     </script>
 }
 
 <style>
+
     body {
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         background-color: #f4f4f4;
     }
+
+
+    .kopce {
+        background-color: #2e8783;
+        color: black;
+    }
+
+        .kopce:hover {
+            background-color: #2e8783;
+            color: white;
+        }
 
     .containerR {
         background: #fff;

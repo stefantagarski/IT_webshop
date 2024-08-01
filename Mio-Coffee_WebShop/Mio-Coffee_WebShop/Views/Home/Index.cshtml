@@ -143,17 +143,25 @@
 </head>
 <body>
 
-    <header><i>Explore our products</i></header>
+    <header><i>The Art of Coffee - Explore Our Exquisite Espresso Collection</i></header>
 
     <div class="containeR">
         <div style="padding: 20px 0;"></div>
 
         <div style="display: flex; justify-content: center; gap: 50px;">
+
             <div class="product-card">
-                <a href="@Url.Action("Index", "Coffees1")" style="text-decoration: none;">
+                <a href="@Url.Action("Index", "Coffees1", new {name = "", type= "Capsules", minPrice = "", maxPrice = "", sortOrder = "name_asc"})" style="text-decoration: none;">
                     <img src="~/images/mio_kafe.jpg" alt="Coffee" class="product-image" />
                 </a>
-                <p class="product-title">Coffee</p>
+                <p class="product-title">Coffee Capsules</p>
+            </div>
+
+            <div class="product-card">
+                <a href="@Url.Action("Index", "Coffees1", new {name = "", type= "Coffee beans", minPrice = "", maxPrice = "", sortOrder = "name_asc"})" style="text-decoration: none;">
+                    <img src="~/images/coffee_beans.jpg" alt="Coffee Beans" class="product-image" />
+                </a>
+                <p class="product-title">Coffee in Beans</p>
             </div>
 
             <div class="product-card">
@@ -163,22 +171,14 @@
                 <p class="product-title">Coffee Machines</p>
             </div>
         </div>
-
-        <div style="padding: 25px">
-            
-        </div>
-        <hr />
-        <h2 style="text-align: center"><i>About Us</i></h2>
-        <hr />
-
         <div style="width: 1200px; margin-left: 55px;" class="row content">
             <div class="col-md-6 order-md-1">
                 <img src="~/images/mio_logo.jpg" alt="Coffee Cup">
             </div>
             <div class="col-md-6 order-md-2">
+                <h2>About Us</h2>
                 <p class="quote">"The secret of the perfect cup of coffee lies in the attention, expertise, and dedication with which we treat each bean, in the familiar smell and taste complemented by the trust of consumers."</p>
                 <p><b>Star-Food Ltd.</b> was founded in 2007 in Strumica, Macedonia. Thanks to the quality, the wide range of products, and the top service, it has been building a success story in the Macedonian market for over 15 years. Led by the great experience gained with dedication and hard work, Star-Food in partnership with <b>Italy-ka S.r.l</b> from Italy invests capital and resources in a line for processing and packaging traditional Italian coffee and a line for the production and packaging of the highest quality espresso coffee and coffee drinks.</p>
-                <p>Today, Star Food is a company with the most modern technology and Italian style, creating a pleasant and comfortable environment for employees and customers.</p>
             </div>
         </div>
 

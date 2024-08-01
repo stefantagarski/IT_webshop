@@ -5,37 +5,37 @@
     {
         @Html.AntiForgeryToken()
 
-<ul class="navbar-nav ml-auto">
-    <li class="nav-item">
-        <a class="nav-link" href="@Url.Action("Cart", "Products")">
-            <i class="bi bi-cart"></i> Cart
-        </a>
-    </li>
-    <li class="nav-item">
-        @Html.ActionLink("Logged as: " + User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
-    </li>
-    @*<li class="nav-item">
-        <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Log out</a>
-    </li>*@
+        <ul style="margin-right: 20px;" class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Cart", "Products")">
+                    <i class="bi bi-bag"></i> Cart<span id="cart-count" class="badge badge-info">0</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("Logged as: " + User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()"><i class="bi bi-box-arrow-right"></i></a>
+            </li>
 
-</ul>
+        </ul>
     }
 }
 else
 {
-<ul class="navbar-nav ml-auto">
-    <li class="nav-item">
-        <a class="nav-link" href="@Url.Action("Cart", "Products")">
-            <i class="bi bi-cart"></i> Cart
-        </a>
-    </li>
-    @*<li class="nav-item">
-        @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link bi bi-person-plus" })
-    </li>*@
-    <li class="nav-item">
-        @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link bi bi-person-circle" })
-    </li>
-</ul>
+    <ul style="margin-right: 20px" class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Cart", "Products")">
+                <i class="bi bi-bag"></i> Cart<span id="cart-count" class="badge badge-info">0</span>
+            </a>
+        </li>
+        @*<li class="nav-item">
+                @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link bi bi-person-plus" })
+            </li>*@
+        <li class="nav-item">
+            @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link bi bi-person-circle" })
+        </li>
+    </ul>
 }
 
 <style>
@@ -60,9 +60,26 @@ else
     .bi-person-plus::before {
         margin-right: 7px;
     }
+
     .bi-person-circle::before {
         margin-right: 7px;
     }
-    
 
+    .badge-pill {
+        padding: 5px 10px;
+        font-size: 12px;
+        vertical-align: top;
+    }
+
+    .badge-danger {
+        background-color: red;
+        color: white;
+    }
+    #cart-count {
+        color: saddlebrown;
+        position: relative;
+        left: -58px;
+        font-size: 11px;
+        top: -1px;
+    }
 </style>

@@ -48,12 +48,21 @@
         @Html.AntiForgeryToken()
         <div class="form-actions no-color">
             <button type="submit" class="btn btn-danger">Delete</button> |
-            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-success" })
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline kopce" })
         </div>
     }
 </div>
 
 <style>
+    .kopce {
+        background-color: #2e8783;
+        color: black;
+    }
+
+        .kopce:hover {
+            background-color: #2e8783;
+            color: white;
+        }
     .details-container {
         max-width: 800px;
         margin: 0 auto;

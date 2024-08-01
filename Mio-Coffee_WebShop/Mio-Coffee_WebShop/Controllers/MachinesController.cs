@@ -28,7 +28,7 @@ namespace Mio_Coffee_WebShop.Controllers
             brands.Insert(0, "All");
             ViewBag.Types = brands;
 
-            // Apply filters
+            // Apply filtriranje
             if (!string.IsNullOrEmpty(name))
             {
                 machines = machines.Where(c => c.Name.Contains(name));

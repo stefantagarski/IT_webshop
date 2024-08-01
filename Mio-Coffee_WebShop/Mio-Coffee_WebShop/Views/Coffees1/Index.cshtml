@@ -6,17 +6,16 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 text-right">
             @if (User.IsInRole("Admin"))
             {
-                <a href="@Url.Action("Create", "Coffees1")" class="btn btn-outline-success">Create New</a>
+                <a href="@Url.Action("Create", "Coffees1")" class="btn btn-outline kopce">Create New</a>
             }
         </div>
         <div class="col-md-6">
             <div id="nesto" style="margin-left: 545px;">
                 <a id="filterButton" class="filter-link" href="#"><i class="bi bi-filter"></i>Filter</a>
             </div>
-            
         </div>
     </div>
 
@@ -50,89 +49,137 @@
                     new SelectListItem { Text = "Price Descending", Value = "price_desc" }
                 }, "Value", "Text", ViewBag.CurrentSort), new { @class = "form-control" })
             </div>
-            <button type="submit" class="btn btn-outline-success">Apply Filters</button>
+            <div class="d-flex justify-content-between">
+                <button style="color: #2e8783" type="submit" class="btn btn-outline">Apply Filters</button>
+                <a style="color: saddlebrown" href="@Url.Action("Index", "Coffees1")" class="btn btn-outline" id="resetFilters">Reset Filters</a>
+            </div>
         }
     </div>
 
     <hr />
     <div class="row mt-4">
-        @foreach (var item in Model)
+        @if (!Model.Any())
         {
-            <div class="col-md-3">
-                <div class="card mb-4">
-                    <img src="@item.ImageURL" alt="@item.Name" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">@item.Name</h5>
-                        <h6>Composition: @item.Composition</h6>
-                        <div class="card-buttons">
-                            @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-outline-success details nesto" })
-                            <button data-id="@item.ID" class="btn btn-outline-success buy-button"><i class="bi bi-cart-plus"></i> Add to Cart - @item.Price.00 den</button>
-                            @if (User.IsInRole("Admin"))
-                            {
-                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-outline-primary" })
-                                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-outline-danger" })
-                            }
+            <div class="col-12">
+                <p style="color: saddlebrown; font-size: 1.2em; text-align: center;">There are no matching products.</p>
+            </div>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <img src="@item.ImageURL" alt="@item.Name" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name</h5>
+                            <h5 style="font-size: 1.10em;"><i class="bi bi-tag"></i> @item.Price den</h5>
+                            <p>Composition: @item.Composition</p>
+                            <div class="card-buttons">
+                                <a href="@Url.Action("Details", "Coffees1", new { id = item.ID })" class="details-button"><i class="bi bi-info-circle"></i></a>
+                                <button style="background-color: #2e8783; font-weight: 400" data-id="@item.ID" class="btn buy-button"><i class="bi bi-cart-plus"></i> Add to Cart</button>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-outline-primary" })
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-outline-danger" })
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            }
         }
     </div>
 </div>
-
 @section Scripts {
     <script>
-        $(document).ready(function () {
-            $('#filterButton').click(function (e) {
-                e.preventDefault();
-                $('#filterPanel').show();
-            });
-
-            $('#closeFilterPanel').click(function () {
-                $('#filterPanel').hide();
-            });
-
-            $('.buy-button').click(function (e) {
-                e.preventDefault();
-                var isUserOrAdmin = '@((User.IsInRole("Admin") || User.IsInRole("User")) ? "true" : "false")';
-
-                if (isUserOrAdmin === "false") {
-                    bootbox.confirm({
-                        message: "You must be logged in to buy a product!",
-                        buttons: {
-                            confirm: {
-                                label: 'Login',
-                                className: 'btn-success'
-                            },
-                            cancel: {
-                                label: 'Cancel',
-                                className: 'btn-secondary'
-                            }
-                        },
-                        callback: function (result) {
-                            if (result) {
-                                window.location.href = '@Url.Action("Login", "Account")';
-                            }
-                        }
-                    });
-                }
-                else {
-                    var productId = $(this).data('id');
-                    $.ajax({
-                        url: '@Url.Action("AddToCart", "Products")',
-                        type: 'POST',
-                        data: { id: productId },
-                        success: function (response) {
-                            if (response.success) {
-                                bootbox.alert("Product added to cart successfully!");
-                            } else {
-                                bootbox.alert("Failed to add product to cart.");
-                            }
-                        }
-                    });
-                }
-            });
+    $(document).ready(function () {
+        $('#filterButton').click(function (e) {
+            e.preventDefault();
+            $('#filterPanel').show();
         });
+
+        $('#closeFilterPanel').click(function () {
+            $('#filterPanel').hide();
+        });
+
+        $('.buy-button').click(function (e) {
+            e.preventDefault();
+            var isUserOrAdmin = '@((User.IsInRole("Admin") || User.IsInRole("User")) ? "true" : "false")';
+
+            if (isUserOrAdmin === "false") {
+                bootbox.confirm({
+                    message: "You must be logged in to buy a product!",
+                    buttons: {
+                        confirm: {
+                            label: 'Login',
+                            className: 'btn kopce'
+                        },
+                        cancel: {
+                            label: 'Cancel',
+                            className: 'btn-secondary'
+                        }
+                    },
+                    callback: function (result) {
+                        if (result) {
+                            window.location.href = '@Url.Action("Login", "Account")';
+                        }
+                    }
+                });
+            }
+            else {
+                var productId = $(this).data('id');
+                $.ajax({
+                    url: '@Url.Action("AddToCart", "Products")',
+                    type: 'POST',
+                    data: { id: productId },
+                    success: function (response) {
+                        if (response.success) {
+                            bootbox.dialog({
+                                message: "Product added to cart successfully!",
+                                buttons: {
+                                    ok: {
+                                        label: 'OK',
+                                        className: 'btn kopce'
+                                    },
+                                    checkout: {
+                                        label: 'Checkout',
+                                        className: 'btn btn-outline-secondary',
+                                        callback: function() {
+                                            window.location.href = '@Url.Action("Cart", "Products")';
+                                        }
+                                    }
+                                }
+                            });
+                            var currentCount = parseInt($('#cart-count').text());
+                            $('#cart-count').text(currentCount + 1);
+                        } else {
+                            bootbox.alert({
+                                message: response.message,
+                                buttons: {
+                                    ok: {
+                                        label: 'OK',
+                                        className: 'btn kopce'
+                                    }
+                                }
+                            });
+                        }
+                    },
+                    error: function() {
+                        bootbox.alert({
+                            message: "An error occurred while adding the product to the cart.",
+                            buttons: {
+                                ok: {
+                                    label: 'OK',
+                                    className: 'btn kopce'
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    });
     </script>
 }
 
@@ -168,7 +215,6 @@
 
         #filterButton:hover {
             text-decoration: underline;
-            font-size: 1.1em;
             color: black;
         }
 
@@ -236,7 +282,29 @@
 
     .card-buttons {
         margin-top: 20px;
+        position: relative;
     }
+
+    .details-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        color: #2e8783;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: color 0.2s;
+        text-decoration: none;
+    }
+
+        .details-button:hover {
+            color: #d9534f;
+        }
+
+        .details-button i {
+            font-size: 1.5rem;
+        }
 
     .btn {
         margin-right: 10px;
@@ -258,4 +326,17 @@
             color: #6c757d;
         }
 
+    .buy-button:hover {
+        color: white;
+    }
+
+    .kopce {
+        background-color: #2e8783;
+        color: black;
+    }
+
+        .kopce:hover {
+            background-color: #2e8783;
+            color: white;
+        }
 </style>

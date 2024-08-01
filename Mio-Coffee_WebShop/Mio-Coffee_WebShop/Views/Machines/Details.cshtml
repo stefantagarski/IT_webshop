@@ -48,10 +48,19 @@
 </div>
 
 <p>
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-success" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-success kopce" })
 </p>
 
 <style>
+    .kopce {
+        background-color: #2e8783;
+        color: black;
+    }
+
+        .kopce:hover {
+            background-color: #2e8783;
+            color: white;
+        }
     .details-container {
         max-width: 800px;
         margin: 0 auto;

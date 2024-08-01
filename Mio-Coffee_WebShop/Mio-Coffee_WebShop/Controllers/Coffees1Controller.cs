@@ -29,7 +29,7 @@ namespace Mio_Coffee_WebShop.Controllers
             types.Insert(0, "All");
             ViewBag.Types = types;
 
-            // Apply filters
+            // Apply filtriranje
             if (!string.IsNullOrEmpty(name))
             {
                 coffees = coffees.Where(c => c.Name.Contains(name));

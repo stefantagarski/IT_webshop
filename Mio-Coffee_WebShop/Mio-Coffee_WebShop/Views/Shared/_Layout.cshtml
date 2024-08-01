@@ -92,6 +92,22 @@
             footer .logo {
                 margin-top: 20px;
             }
+
+        .cart-counter {
+            position: relative;
+            display: inline-block;
+        }
+
+            .cart-counter span {
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                background-color: #d9534f;
+                color: white;
+                border-radius: 50%;
+                padding: 2px 6px;
+                font-size: 0.8em;
+            }
     </style>
 </head>
 <body>
@@ -127,7 +143,7 @@
                         </li>
                     }
                 </ul>
-                @Html.Partial("_LoginPartial")
+                    @Html.Partial("_LoginPartial")
             </div>
         </div>
     </nav>
@@ -136,7 +152,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <div style="float: left; margin-top: 105px; /* margin-right: 55px; */ margin-left: 124px;f"> 
+            <div style="float: left; margin-top: 105px; /* margin-right: 55px; */ margin-left: 124px;">
                 <h2 id="title">Contact us!</h2>
                 <address>
                     Goce Delcev 113A<br />
@@ -144,8 +160,8 @@
                     <abbr title="Phone">P:</abbr>
                     +389 34 344 544
                 </address>
-            
-            
+
+
                 <h4>Follow us on social media</h4>
                 <div class="social-links">
                     <a href="https://www.facebook.com/starfood.mk"><i class="bi bi-facebook"></i> StarFood.mk</a>

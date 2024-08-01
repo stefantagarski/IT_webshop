@@ -1,27 +1,83 @@
 ﻿@model Mio_Coffee_WebShop.Models.AddUserToRoleModel
 @{
-    ViewBag.Title = "AddUserToRole";
+    ViewBag.Title = "Add User To Role";
 }
 
-<h2 style="color: saddlebrown">Add User To Role</h2>
+<div class="kontainer mt-5">
+    <h2 class="text-center mb-4" style="color: saddlebrown;">Add User To Role</h2>
 
-@using (Html.BeginForm("AddUserToRole", "Account"))
-            {
-                <div style="color: saddlebrown" class="form-group">
-                    @Html.LabelFor(m => m.Email)
-                    @Html.TextBoxFor(m => m.Email, new{ @class = "form-control"})
-                    <br />
-                    @Html.LabelFor(m => m.SelectedRole)
-                    @Html.DropDownListFor(m => m.SelectedRole,
-                   new SelectList(Model.Roles), new {@class = "form-control"})
-                    <br />
+    @using (Html.BeginForm("AddUserToRole", "Account", FormMethod.Post))
+    {
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm border-light">
+                    <div class="card-body">
+                        <div style=" margin-bottom: 10px;" class="form-group">
+                            @Html.LabelFor(m => m.Email, new { @class = "form-label" })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter email" })
+                        </div>
 
-                    <button type="submit" class="btn btn-outline-success">Save</button>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.SelectedRole, new { @class = "form-label" })
+                            @Html.DropDownListFor(m => m.SelectedRole, new SelectList(Model.Roles), "Select role", new { @class = "form-control" })
+                        </div>
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <button type="submit" class="btn btn-success">Save</button>
+                        </div>
+                    </div>
                 </div>
-            }
+            </div>
+        </div>
+    }
+</div>
 
 <style>
-    body{
+
+    body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         background-color: #f4f4f4;
+    }
+
+    .kontainer {
+        width: 1200px;
+        margin-left: 50px;
+    }
+
+    .form-label {
+        color: #2e8783;
+        font-weight: 600;
+    }
+
+    .form-control {
+        border-radius: 0.25rem;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+    }
+
+    .card {
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+
+    .card-body {
+        padding: 2rem;
+    }
+
+    .btn-success {
+        background-color: #2e8783;
+        border-color: #2e8783;
+    }
+
+        .btn-success:hover {
+            background-color: #236e63;
+            border-color: #1b5e52;
+        }
+
+    .shadow-sm {
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
+
+    .border-light {
+        border-color: #e9ecef;
     }
 </style>
