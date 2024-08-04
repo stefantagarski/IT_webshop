@@ -15,6 +15,8 @@ namespace Mio_Coffee_WebShop.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
 
+
+
         // GET: Coffees1
         //public ActionResult Index()
         //{
