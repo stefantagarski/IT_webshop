@@ -34,51 +34,48 @@
                 <dt>
                     @Html.DisplayNameFor(model => model.Price)
                 </dt>
-
                 <dd>
-                    @Html.DisplayFor(model => model.Price)
+                    @Html.DisplayFor(model => model.Price) den
                 </dd>
             </dl>
         </div>
         <div class="details-image">
-            <img src="@Model.ImageURL" alt="@Model.Name" class="coffee-image" />
-            <p style="margin-right: 130px; margin-top: 20px; }">For more information click the <a href="https://www.nuovasimonelli.it/appialife/#brochure" style="color: darkgreen">link</a></p>
+            <img src="@Model.ImageURL" alt="@Model.Name" class="machine-image" />
+            <p>For more information, click the <a href="https://www.nuovasimonelli.it/appialife/#brochure" class="info-link">link</a></p>
         </div>
     </div>
 </div>
 
 <p>
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-success kopce" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline kopce" })
 </p>
 
 <style>
-    .kopce {
-        background-color: #2e8783;
-        color: black;
+    body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
     }
 
-        .kopce:hover {
-            background-color: #2e8783;
-            color: white;
-        }
     .details-container {
-        max-width: 800px;
-        margin: 0 auto;
+        max-width: 900px;
+        margin: 40px auto;
         padding: 20px;
-        background-color: #f9f9f9;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
         .details-container h4 {
             margin-bottom: 20px;
-            font-size: 1.8em;
-            color: #333;
+            font-size: 2em;
+            color: #444;
             text-align: center;
+            text-transform: uppercase;
         }
 
         .details-container hr {
-            border-top: 2px solid #e5e5e5;
+            border-top: 2px solid #ddd;
             width: 100%;
         }
 
@@ -87,58 +84,72 @@
         justify-content: space-between;
         align-items: flex-start;
         flex-wrap: wrap;
+        gap: 20px;
     }
 
     .details-text {
-        width: 60%;
+        width: 55%;
     }
 
     .details-image {
-        width: 35%;
+        width: 40%;
         text-align: center;
     }
 
     .dl-horizontal dt, .dl-horizontal dd {
         margin: 0;
         padding: 10px 0;
+        font-size: 1.1em;
     }
 
     .dl-horizontal dt {
         font-weight: bold;
-        color: #555;
+        color: #777;
+        width: 30%;
+        display: inline-block;
     }
 
     .dl-horizontal dd {
-        color: #333;
+        color: #555;
+        width: 65%;
+        display: inline-block;
+        margin-left: 0;
     }
 
-    .coffee-image {
+    .machine-image {
+        width: 100%;
         height: auto;
         border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        width: 300px;
-        position: relative;
-        right: 98px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
+    .info-link {
+        color: #2e8783;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+        .info-link:hover {
+            color: #1c5d59;
+        }
+
     .btn {
-        padding: 10px 20px;
-        border-radius: 5px;
-        transition: background-color 0.2s, transform 0.2s;
+        padding: 12px 25px;
+        border-radius: 8px;
         display: inline-block;
         text-align: center;
         margin-top: 20px;
     }
 
-    .btn-outline-success {
+    .btn-outline {
         background-color: transparent;
-        color: #5cb85c;
-        border: 1px solid #5cb85c;
+        color: #2e8783;
+        border: 2px solid #2e8783;
     }
 
-        .btn-outline-success:hover {
-            background-color: #5cb85c;
+        .btn-outline:hover {
+            background-color: #2e8783;
             color: #fff;
-            transform: translateY(-2px);
         }
 </style>

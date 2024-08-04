@@ -50,8 +50,8 @@
                 }, "Value", "Text", ViewBag.CurrentSort), new { @class = "form-control" })
             </div>
             <div class="d-flex justify-content-between">
-                <button style="color: #2e8783" type="submit" class="btn btn-outline">Apply Filters</button>
-                <a style="color: saddlebrown" href="@Url.Action("Index", "Machines")" class="btn btn-outline" id="resetFilters">Reset Filters</a>
+                <button style="color: #2e8783" type="submit" class="btn">Apply Filters</button>
+                <a style="color: #ff8c00;" href="@Url.Action("Index", "Machines")" class="btn" id="resetFilters">Reset Filters</a>
             </div>
         }
     </div>
@@ -61,7 +61,7 @@
         @if (!Model.Any())
         {
             <div class="col-12">
-                <p style="color: saddlebrown; font-size: 1.2em; text-align: center;">There are no matching products.</p>
+                <p style="color: saddlebrown; font-size: 1.2em; text-align: center;">There are no matching results.</p>
             </div>
         }
         else
@@ -77,7 +77,7 @@
                             <p>By: @item.Brand</p>
                             <div class="card-buttons">
                                 <a href="@Url.Action("Details", "Machines", new { id = item.ID })" class="details-button"><i class="bi bi-info-circle"></i></a>
-                                <button style="background-color: #2e8783; font-weight: 400" data-id="@item.ID" class="btn buy-button"><i class="bi bi-cart-plus"></i> Add to Cart</button>
+                                <button data-id="@item.ID" class="btn kopce buy-button"><i class="bi bi-cart-plus"></i> Add to Cart</button>
                                 @if (User.IsInRole("Admin"))
                                 {
                                     @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-outline-primary" })
@@ -106,8 +106,19 @@
         $('.buy-button').click(function (e) {
             e.preventDefault();
             var isUserOrAdmin = '@((User.IsInRole("Admin") || User.IsInRole("User")) ? "true" : "false")';
+            var isLoggedIn = '@(User.Identity.IsAuthenticated ? "true" : "false")';
 
-            if (isUserOrAdmin === "false") {
+            if (isUserOrAdmin === "false" && isLoggedIn === "true") {
+                bootbox.alert({
+                    message: "You do not have the necessary role to purchase a product. Please Log Off and Log In to your Account",
+                    buttons: {
+                        ok: {
+                            label: 'OK',
+                            className: 'btn kopce'
+                        }
+                    }
+                });
+            } else if (isUserOrAdmin === "false") {
                 bootbox.confirm({
                     message: "You must be logged in to buy a product!",
                     buttons: {
@@ -151,8 +162,7 @@
                                     }
                                 }
                             });
-                            var currentCount = parseInt($('#cart-count').text());
-                            $('#cart-count').text(currentCount + 1);
+                           
                         } else {
                             bootbox.alert({
                                 message: response.message,
@@ -182,6 +192,7 @@
     });
     </script>
 }
+
 
 <style>
     body {
@@ -214,8 +225,7 @@
         }
 
         #filterButton:hover {
-            text-decoration: underline;
-            color: black;
+            color: #ff8c00;
         }
 
     .nesto {
@@ -299,7 +309,7 @@
     }
 
         .details-button:hover {
-            color: #d9534f;
+            color: #ff8c00;
         }
 
         .details-button i {
@@ -326,9 +336,16 @@
             color: #6c757d;
         }
 
-    .buy-button:hover {
+    .buy-button {
         color: white;
+        background-color: #2e8783;
+        font-weight: 400;
     }
+
+        .buy-button:hover {
+            background-color: #2e8783;
+            color: white;
+        }
 
     .kopce {
         background-color: #2e8783;

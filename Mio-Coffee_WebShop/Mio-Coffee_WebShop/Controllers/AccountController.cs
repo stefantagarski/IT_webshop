@@ -14,6 +14,7 @@ using Mio_Coffee_WebShop.Models;
 namespace Mio_Coffee_WebShop.Controllers
 {
     [Authorize]
+
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
