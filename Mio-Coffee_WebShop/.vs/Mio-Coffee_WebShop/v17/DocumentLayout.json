@@ -7,16 +7,8 @@
       "RelativeMoniker": "D:0:0:{196173E4-E9A6-4101-88AD-78C39BAAE25A}|Mio-Coffee_WebShop\\Mio-Coffee_WebShop.csproj|solutionrelative:mio-coffee_webshop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{196173E4-E9A6-4101-88AD-78C39BAAE25A}|Mio-Coffee_WebShop\\Mio-Coffee_WebShop.csproj|c:\\programming finki\\it\\it_webshop\\mio-coffee_webshop\\mio-coffee_webshop\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{196173E4-E9A6-4101-88AD-78C39BAAE25A}|Mio-Coffee_WebShop\\Mio-Coffee_WebShop.csproj|solutionrelative:mio-coffee_webshop\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{196173E4-E9A6-4101-88AD-78C39BAAE25A}|Mio-Coffee_WebShop\\Mio-Coffee_WebShop.csproj|C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\mio-coffee_webshop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{196173E4-E9A6-4101-88AD-78C39BAAE25A}|Mio-Coffee_WebShop\\Mio-Coffee_WebShop.csproj|solutionrelative:mio-coffee_webshop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{196173E4-E9A6-4101-88AD-78C39BAAE25A}|Mio-Coffee_WebShop\\Mio-Coffee_WebShop.csproj|C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\mio-coffee_webshop\\views\\coffees1\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{196173E4-E9A6-4101-88AD-78C39BAAE25A}|Mio-Coffee_WebShop\\Mio-Coffee_WebShop.csproj|solutionrelative:mio-coffee_webshop\\views\\coffees1\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{196173E4-E9A6-4101-88AD-78C39BAAE25A}|Mio-Coffee_WebShop\\Mio-Coffee_WebShop.csproj|c:\\programming finki\\it\\it_webshop\\mio-coffee_webshop\\mio-coffee_webshop\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{196173E4-E9A6-4101-88AD-78C39BAAE25A}|Mio-Coffee_WebShop\\Mio-Coffee_WebShop.csproj|solutionrelative:mio-coffee_webshop\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -36,7 +28,7 @@
               "RelativeDocumentMoniker": "Mio-Coffee_WebShop\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\Mio-Coffee_WebShop\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Mio-Coffee_WebShop\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAQAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-08-03T12:53:08.895Z",
               "IsPinned": true,
@@ -44,41 +36,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\Mio-Coffee_WebShop\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Mio-Coffee_WebShop\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\Mio-Coffee_WebShop\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Mio-Coffee_WebShop\\Controllers\\AccountController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T20:48:20.978Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\Mio-Coffee_WebShop\\Views\\Coffees1\\Index.cshtml",
-              "RelativeDocumentMoniker": "Mio-Coffee_WebShop\\Views\\Coffees1\\Index.cshtml",
-              "ToolTip": "C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\Mio-Coffee_WebShop\\Views\\Coffees1\\Index.cshtml",
-              "RelativeToolTip": "Mio-Coffee_WebShop\\Views\\Coffees1\\Index.cshtml",
-              "ViewState": "AQIAACQAAAAAAAAAAAAAADUAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-04T16:01:22.179Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\Mio-Coffee_WebShop\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Mio-Coffee_WebShop\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\Mio-Coffee_WebShop\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Mio-Coffee_WebShop\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAAKIAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-04T15:56:14.566Z",
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\Mio-Coffee_WebShop\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "Mio-Coffee_WebShop\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\Mio-Coffee_WebShop\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "Mio-Coffee_WebShop\\Controllers\\ProductsController.cs",
+              "ViewState": "AQIAAHIAAAAAAAAAAAAowAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T20:28:10.423Z",
+              "IsPinned": true,
               "EditorCaption": ""
             }
           ]

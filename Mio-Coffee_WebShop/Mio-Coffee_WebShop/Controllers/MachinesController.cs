@@ -14,12 +14,6 @@ namespace Mio_Coffee_WebShop.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Machines
-        //public ActionResult Index()
-        //{
-        //    return View(db.Machines.ToList());
-        //}
-
         public ActionResult Index(string name, string type, decimal? minPrice, decimal? maxPrice, string sortOrder)
         {
             // Fetch

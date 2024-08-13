@@ -12,17 +12,9 @@ namespace Mio_Coffee_WebShop.Controllers
 {
     public class Coffees1Controller : Controller
     {
+
+
         private ApplicationDbContext db = new ApplicationDbContext();
-
-
-
-
-        // GET: Coffees1
-        //public ActionResult Index()
-        //{
-        //    return View(db.Coffees.ToList());
-        //}
-
         public ActionResult Index(string name, string type, decimal? minPrice, decimal? maxPrice, string sortOrder)
         {
             // Fetch
