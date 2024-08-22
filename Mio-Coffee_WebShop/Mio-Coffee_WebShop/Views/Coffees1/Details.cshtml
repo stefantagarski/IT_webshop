@@ -5,57 +5,30 @@
 }
 
 <div class="details-container">
-    <h4>Details</h4>
+    <h4>@Model.Name</h4>
     <hr />
     <div class="details-content">
         <div class="details-text">
-            <dl class="dl-horizontal">
-                <dt>
-                    @Html.DisplayNameFor(model => model.Name)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Name)
-                </dd>
+            <dl class="details-list">
+                <dt>@Html.DisplayNameFor(model => model.Rating)</dt>
+                <dd>@Html.DisplayFor(model => model.Rating)</dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Rating)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Rating)
-                </dd>
+                <dt>@Html.DisplayNameFor(model => model.Type)</dt>
+                <dd>@Html.DisplayFor(model => model.Type)</dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Type)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Type)
-                </dd>
+                <dt>@Html.DisplayNameFor(model => model.Origin)</dt>
+                <dd>@Html.DisplayFor(model => model.Origin)</dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Origin)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Origin)
-                </dd>
+                <dt>@Html.DisplayNameFor(model => model.Composition)</dt>
+                <dd>@Html.DisplayFor(model => model.Composition)</dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Composition)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Composition)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.Price)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Price) den
-                </dd>
+                <dt>@Html.DisplayNameFor(model => model.Price)</dt>
+                <dd>@Html.DisplayFor(model => model.Price) den</dd>
             </dl>
         </div>
         <div class="details-image">
             <img src="@Model.ImageURL" alt="@Model.Name" class="coffee-image" />
-            <p>For more information, click the <a href="~/Products/Index" class="info-link">link</a></p>
+            <p>For more information, click the <a style="color: #2e8783" href="~/Products/Index" class="info-link">link</a></p>
         </div>
     </div>
 </div>
@@ -67,30 +40,33 @@
 <style>
     body {
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        background-color: #f4f4f9;
+        background-color: #f4f4f4;
         color: #333;
+        line-height: 1.6;
     }
 
     .details-container {
-        max-width: 900px;
-        margin: 40px auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 15px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     }
 
         .details-container h4 {
             margin-bottom: 20px;
-            font-size: 2em;
-            color: #444;
+            font-size: 2.2em;
+            color: #2a2a2a;
             text-align: center;
-            text-transform: uppercase;
+            text-transform: capitalize;
+            font-weight: 500;
+            letter-spacing: 1px;
         }
 
         .details-container hr {
-            border-top: 2px solid #ddd;
-            width: 100%;
+            border-top: 1px solid #ddd;
+            margin-bottom: 25px;
         }
 
     .details-content {
@@ -103,6 +79,7 @@
 
     .details-text {
         width: 55%;
+        font-size: 1.1em;
     }
 
     .details-image {
@@ -110,60 +87,57 @@
         text-align: center;
     }
 
-    .dl-horizontal dt, .dl-horizontal dd {
-        margin: 0;
-        padding: 10px 0;
-        font-size: 1.1em;
+    .details-list dt {
+        font-weight: 500;
+        color: #444;
+        margin-bottom: 10px;
     }
 
-    .dl-horizontal dt {
-        font-weight: bold;
-        color: #777;
-        width: 30%;
-        display: inline-block;
-    }
-
-    .dl-horizontal dd {
+    .details-list dd {
+        margin-bottom: 20px;
         color: #555;
-        width: 65%;
-        display: inline-block;
-        margin-left: 0;
+        font-size: 1.05em;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e3e4e6;
     }
 
     .coffee-image {
         width: 100%;
+        max-width: 350px;
         height: auto;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        margin-bottom: 15px;
     }
 
     .info-link {
-        color: #2e8783;
+        color: #007bff;
         text-decoration: none;
-        font-weight: bold;
-        transition: color 0.3s;
+        font-weight: 500;
+        transition: color 0.3s ease-in-out;
     }
 
         .info-link:hover {
-            color: #1c5d59;
+            color: #0056b3;
         }
 
     .btn {
-        padding: 12px 25px;
+        padding: 10px 25px;
         border-radius: 8px;
-        display: inline-block;
+        font-size: 1.1em;
         text-align: center;
-        margin-top: 20px;
+        margin-top: 30px;
+        font-weight: 400;
+        display: inline-block;
     }
 
     .btn-outline {
-        background-color: transparent;
+        background-color: #f4f4f4;
         color: #2e8783;
-        border: 2px solid #2e8783;
+        transition: background-color 0.3s ease-in-out;
     }
 
-        .btn-outline:hover {
+        .btn-primary:hover {
             background-color: #2e8783;
-            color: #fff;          
         }
 </style>
