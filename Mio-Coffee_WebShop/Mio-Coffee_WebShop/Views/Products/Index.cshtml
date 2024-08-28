@@ -6,17 +6,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport", initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            width: 1340px;
+            width: 100%;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             background-color: #f4f4f4;
             color: #333;
             margin: 0;
             padding: 0;
         }
-       
+
         header {
             font-style: italic;
             text-align: center;
@@ -29,8 +29,9 @@
         }
 
         main {
-            max-width: 1320px;
-            margin: 20px auto;
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
             padding: 20px;
             background-color: white;
             border-radius: 8px;
@@ -106,7 +107,17 @@
                 margin-top: 5px;
             }
 
-      
+        .kopce {
+            background-color: #2e8783;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+            .kopce:hover {
+                color: white;
+            }
     </style>
 </head>
 <body>
@@ -114,7 +125,7 @@
         Premium Coffee Selection
     </header>
     <main>
-        @{ 
+        @{
             var buyNow = Url.Action("Index", "Coffees1");
         }
 
@@ -123,7 +134,7 @@
             <div class="product-info">
                 <h2>Crema Gusto</h2>
                 <p>A soft blend of fine Arabica and Robusta beans. A perfect balance with spicy notes of an intense chocolate aroma with a vanilla flavor. It is characterized by a high concentration of creaminess. An ideal coffee at any time of the day. Packed in a 1kg bag.</p>
-                <button onclick="event.preventDefault(); window.location.href='@buyNow'" class="btn btn-outline-sucess">Buy Now</button>
+                <button onclick="window.location.href='@buyNow'" class="kopce">Buy Now</button>
             </div>
         </div>
 
@@ -131,7 +142,7 @@
             <div class="product-info">
                 <h2>Mia Michela</h2>
                 <p>A good coffee treat that everyone wants to have on hand. With an unmistakable aroma that gives you renewable energy and creates magical moments. It has an intense taste of chocolate and hazelnut with a strong aromatic bouquet. Perfect for true connoisseurs.</p>
-                <button onclick="event.preventDefault(); window.location.href='@buyNow'" class="btn btn-outline-success">Buy Now</button>
+                <button onclick="event.preventDefault(); window.location.href='@buyNow'" class="kopce">Buy Now</button>
             </div>
             <img src="~/images/mia_product.jpg" alt="Mia Michela">
         </div>
@@ -141,7 +152,7 @@
             <div class="product-info">
                 <h2>Crema Oro</h2>
                 <p>A unique combination of 6 varieties of Arabica and a mix of the best Robusta beans expertly selected and perfectly blended. A perfect symphony that results in superior taste. It has a vanilla and hazelnut flavor with a sweet and aromatic note.</p>
-                <button onclick="event.preventDefault(); window.location.href='@buyNow'" class="btn btn-outline-success">Buy Now</button>
+                <button onclick="event.preventDefault(); window.location.href='@buyNow'" class="kopce">Buy Now</button>
             </div>
         </div>
 
@@ -149,7 +160,7 @@
             <div class="product-info">
                 <h2>Dolce Crema</h2>
                 <p>This blend is made from 100% specially selected Arabica beans with an intensely aromatic flavor that makes the ultimate espresso coffee irresistible at any time of the day. It is distinguished by a pronounced aroma of white chocolate and a taste of vanilla with a strong note of sugar.</p>
-                <button onclick="event.preventDefault(); window.location.href='@buyNow'" class="btn btn-outline-success">Buy Now</button>
+                <button onclick="event.preventDefault(); window.location.href='@buyNow'" class="kopce">Buy Now</button>
             </div>
             <img src="~/images/dolce_product.jpg" alt="Dolce Crema">
         </div>
@@ -159,7 +170,7 @@
             <div class="product-info">
                 <h2>Caffe Magno</h2>
                 <p>Made from a unique blend of Robusta and Arabica beans to produce an aromatic and well-rounded taste. A versatile blend, great with or without milk. Intensely bold roasted coffee has a pleasantly robust finish, with warm notes of cocoa and dried fruit.</p>
-                <button onclick="event.preventDefault(); window.location.href='@buyNow'" class="btn btn-outline-success">Buy Now</button>
+                <button onclick="event.preventDefault(); window.location.href='@buyNow'" class="kopce">Buy Now</button>
             </div>
         </div>
 
@@ -169,7 +180,7 @@
                 <p>Guaranteed Success with its high productivity and high performance, this machine is appreciated by thousands of baristas around the world. Simple and Innovative, Appia stands out, not only with its proven reliability, but also with the perfect style that makes it unique. It is the perfect coffee machine for large companies, cafeterias, and anywhere there is a need for an abundance of excellent coffee. Designed to save energy, protect the environment, and work efficiently.</p>
             </div>
             <br />
-            <div style="margin-top: 15px; margin-left: -65px" class="img-group">
+            <div style="margin-top: 15px;" class="img-group">
                 <div style=" margin-left: 15px;">
                     <img src="~/images/appia_1.png" alt="Appia Coffee Machine 1">
                     <div style="margin-left: 9px" class="img-label">Appia Machine 1</div>
@@ -209,9 +220,8 @@
                 <li>Own distribution network</li>
                 <li>24/7 service availability</li>
                 <li>Dedicated customer support center</li>
-                <li>Free training program for new customers</li>
+                <li>Free training program</li>
             </ul>
-            <p>We remain focused on the future, embracing new challenges and ideas for further growth and development.</p>
         </div>
     </main>
 </body>

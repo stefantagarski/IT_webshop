@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{196173E4-E9A6-4101-88AD-78C39BAAE25A}|Mio-Coffee_WebShop\\Mio-Coffee_WebShop.csproj|C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\mio-coffee_webshop\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{196173E4-E9A6-4101-88AD-78C39BAAE25A}|Mio-Coffee_WebShop\\Mio-Coffee_WebShop.csproj|solutionrelative:mio-coffee_webshop\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{196173E4-E9A6-4101-88AD-78C39BAAE25A}|Mio-Coffee_WebShop\\Mio-Coffee_WebShop.csproj|c:\\programming finki\\it\\it_webshop\\mio-coffee_webshop\\mio-coffee_webshop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{196173E4-E9A6-4101-88AD-78C39BAAE25A}|Mio-Coffee_WebShop\\Mio-Coffee_WebShop.csproj|solutionrelative:mio-coffee_webshop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{196173E4-E9A6-4101-88AD-78C39BAAE25A}|Mio-Coffee_WebShop\\Mio-Coffee_WebShop.csproj|c:\\programming finki\\it\\it_webshop\\mio-coffee_webshop\\mio-coffee_webshop\\views\\machines\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{196173E4-E9A6-4101-88AD-78C39BAAE25A}|Mio-Coffee_WebShop\\Mio-Coffee_WebShop.csproj|solutionrelative:mio-coffee_webshop\\views\\machines\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{196173E4-E9A6-4101-88AD-78C39BAAE25A}|Mio-Coffee_WebShop\\Mio-Coffee_WebShop.csproj|c:\\programming finki\\it\\it_webshop\\mio-coffee_webshop\\mio-coffee_webshop\\views\\coffees1\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{196173E4-E9A6-4101-88AD-78C39BAAE25A}|Mio-Coffee_WebShop\\Mio-Coffee_WebShop.csproj|solutionrelative:mio-coffee_webshop\\views\\coffees1\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{196173E4-E9A6-4101-88AD-78C39BAAE25A}|Mio-Coffee_WebShop\\Mio-Coffee_WebShop.csproj|c:\\programming finki\\it\\it_webshop\\mio-coffee_webshop\\mio-coffee_webshop\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{196173E4-E9A6-4101-88AD-78C39BAAE25A}|Mio-Coffee_WebShop\\Mio-Coffee_WebShop.csproj|solutionrelative:mio-coffee_webshop\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,17 +18,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\Mio-Coffee_WebShop\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Mio-Coffee_WebShop\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\Mio-Coffee_WebShop\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Mio-Coffee_WebShop\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAK0AAAAAAAAAAAAAABAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-08-03T12:53:08.895Z",
               "IsPinned": true,
@@ -44,41 +36,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\Mio-Coffee_WebShop\\Views\\Coffees1\\Details.cshtml",
-              "RelativeDocumentMoniker": "Mio-Coffee_WebShop\\Views\\Coffees1\\Details.cshtml",
-              "ToolTip": "C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\Mio-Coffee_WebShop\\Views\\Coffees1\\Details.cshtml",
-              "RelativeToolTip": "Mio-Coffee_WebShop\\Views\\Coffees1\\Details.cshtml",
-              "ViewState": "AQIAAHcAAAAAAAAAAAAkwIcAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-22T20:03:16.218Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\Mio-Coffee_WebShop\\Views\\Machines\\Details.cshtml",
-              "RelativeDocumentMoniker": "Mio-Coffee_WebShop\\Views\\Machines\\Details.cshtml",
-              "ToolTip": "C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\Mio-Coffee_WebShop\\Views\\Machines\\Details.cshtml",
-              "RelativeToolTip": "Mio-Coffee_WebShop\\Views\\Machines\\Details.cshtml",
-              "ViewState": "AQIAAGgAAAAAAAAAAAAkwIEAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-22T22:48:57.589Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\Mio-Coffee_WebShop\\Views\\Products\\Index.cshtml",
               "RelativeDocumentMoniker": "Mio-Coffee_WebShop\\Views\\Products\\Index.cshtml",
               "ToolTip": "C:\\Programming FINKI\\IT\\IT_webshop\\Mio-Coffee_WebShop\\Mio-Coffee_WebShop\\Views\\Products\\Index.cshtml",
               "RelativeToolTip": "Mio-Coffee_WebShop\\Views\\Products\\Index.cshtml",
-              "ViewState": "AQIAAEIAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAHgAAAAAAAAAAAAAAIgAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-08-22T23:13:35.644Z",
               "IsPinned": true,
