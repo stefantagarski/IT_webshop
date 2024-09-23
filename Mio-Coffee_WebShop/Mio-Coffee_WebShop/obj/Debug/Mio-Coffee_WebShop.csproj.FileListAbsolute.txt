@@ -242,3 +242,5 @@ C:\Programming FINKI\IT\IT_webshop\Mio-Coffee_WebShop\Mio-Coffee_WebShop\obj\Deb
 C:\Programming FINKI\IT\IT_webshop\Mio-Coffee_WebShop\Mio-Coffee_WebShop\obj\Debug\Mio-Coff.8D46BBBB.Up2Date
 C:\Programming FINKI\IT\IT_webshop\Mio-Coffee_WebShop\Mio-Coffee_WebShop\obj\Debug\Mio-Coffee_WebShop.dll
 C:\Programming FINKI\IT\IT_webshop\Mio-Coffee_WebShop\Mio-Coffee_WebShop\obj\Debug\Mio-Coffee_WebShop.pdb
+C:\Programming FINKI\IT\IT_webshop\Mio-Coffee_WebShop\Mio-Coffee_WebShop\obj\Debug\Mio_Coffee_WebShop.Migrations.registerUpdate.resources
+C:\Programming FINKI\IT\IT_webshop\Mio-Coffee_WebShop\Mio-Coffee_WebShop\obj\Debug\Mio_Coffee_WebShop.Migrations.registerFullName.resources

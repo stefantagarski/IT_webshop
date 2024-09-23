@@ -2,7 +2,8 @@
 @{
     ViewBag.Title = "Add User To Role";
 }
-
+ @if (User.IsInRole("Admin"))
+ {
 <div class="kontainer mt-5">
     <h2 class="text-center mb-4" style="color: saddlebrown;">Add User To Role</h2>
 
@@ -32,6 +33,7 @@
     }
 </div>
 
+ }
 <style>
 
     body {

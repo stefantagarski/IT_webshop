@@ -86,7 +86,6 @@
                     {
                         @Html.AntiForgeryToken()
                         <hr />
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="form-group row">
                             @Html.LabelFor(m => m.Email, new { @class = "col-md-2 col-form-label" })
                             <div class="col-md-10">

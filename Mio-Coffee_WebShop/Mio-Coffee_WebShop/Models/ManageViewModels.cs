@@ -6,7 +6,7 @@ using Microsoft.Owin.Security;
 namespace Mio_Coffee_WebShop.Models
 {
     public class IndexViewModel
-    {
+    { 
         public bool HasPassword { get; set; }
         public IList<UserLoginInfo> Logins { get; set; }
         public string PhoneNumber { get; set; }

@@ -136,9 +136,14 @@
 
                     @if (User.IsInRole("Admin"))
                     {
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a class="nav-link" href="@Url.Action("AddUserToRole", "Account")">
                                 <i class="bi bi-person-plus"></i> Add User to Role
+                            </a>
+                        </li>*@
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("ListUsers", "Admin")">
+                                <i class="bi bi-people-fill"></i> Users
                             </a>
                         </li>
                     }

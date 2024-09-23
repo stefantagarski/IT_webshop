@@ -1,0 +1,122 @@
+﻿@model IEnumerable<Mio_Coffee_WebShop.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "ListUsers";
+}
+
+<div class="containerR mt-5">
+    <h2 class="text-center mb-4">List of Users, currently logged in</h2>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>User ID</th>
+                    <th>E-mail</th>
+                    <th>Roles</th>
+                    <th>Add Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.Id</td>
+                        <td>@user.Email</td>
+                        <td>
+                            @{
+                                var roles = ViewBag.UserRoles[user.Id] as List<string>;
+                            }
+
+                            @if (roles != null && roles.Any())
+                            {
+                                foreach (var role in roles)
+                                {
+                                    <span class="badge badge-info">@role</span>
+                                }
+                            }
+                            else
+                            {
+                                <span class="badge badge-secondary">No roles assigned</span>
+                            }
+                        </td>
+                       <td>
+                           <a class="kopce badge" style="text-decoration-line: none" href="@Url.Action("AddUserToRole", "Account")">Add User To Role</a>
+                       </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    .kopce {
+        background-color: #2e8783;
+        color: black;
+    }
+
+        .kopce:hover {
+            background-color: #2e8783;
+            color: white;
+        }
+
+    .containerR {
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .table {
+        margin-bottom: 0;
+    }
+
+        .table thead {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        .table td, .table th {
+            vertical-align: middle;
+            text-align: center;
+        }
+
+    .btn-outline-danger {
+        color: #dc3545;
+        border-color: #dc3545;
+    }
+
+        .btn-outline-danger:hover {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+
+    .mt-5 {
+        margin-top: 3rem;
+    }
+
+    .mb-4 {
+        margin-bottom: 1.5rem;
+    }
+
+    .badge-info {
+        background-color: #17a2b8;
+    }
+
+    .badge-secondary {
+        background-color: #6c757d;
+    }
+</style>

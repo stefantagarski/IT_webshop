@@ -64,9 +64,6 @@ namespace Mio_Coffee_WebShop.Models
 
     public class RegisterViewModel
     {
-        [Required]
-
-        public string Name { get; set; }
 
         [EmailAddress]
         [Display(Name = "Email")]

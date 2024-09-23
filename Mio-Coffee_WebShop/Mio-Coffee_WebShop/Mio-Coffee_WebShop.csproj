@@ -185,6 +185,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\Coffees1Controller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MachinesController.cs" />
@@ -213,6 +214,14 @@
     <Compile Include="Migrations\202407102241309_updateMachinesModel.cs" />
     <Compile Include="Migrations\202407102241309_updateMachinesModel.Designer.cs">
       <DependentUpon>202407102241309_updateMachinesModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202409161527415_registerUpdate.cs" />
+    <Compile Include="Migrations\202409161527415_registerUpdate.Designer.cs">
+      <DependentUpon>202409161527415_registerUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202409221312227_registerFullName.cs" />
+    <Compile Include="Migrations\202409221312227_registerFullName.Designer.cs">
+      <DependentUpon>202409221312227_registerFullName.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -550,6 +559,7 @@
     <Content Include="Views\Products\Cart.cshtml" />
     <Content Include="Views\Payment\Index.cshtml" />
     <Content Include="Views\Home\ThankYou.cshtml" />
+    <Content Include="Views\Admin\ListUsers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -598,6 +608,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202407102241309_updateMachinesModel.resx">
       <DependentUpon>202407102241309_updateMachinesModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202409161527415_registerUpdate.resx">
+      <DependentUpon>202409161527415_registerUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202409221312227_registerFullName.resx">
+      <DependentUpon>202409221312227_registerFullName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
