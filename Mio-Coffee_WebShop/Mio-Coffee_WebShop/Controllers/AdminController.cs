@@ -25,12 +25,17 @@ namespace Mio_Coffee_WebShop.Controllers
             var roles = _dbContext.Roles.ToList();
             var users = _dbContext.Users.ToList();
 
-            ViewBag.UserRoles = users.ToDictionary(
-            user => user.Id,
-            user => user.Roles.Select(usr => roles.FirstOrDefault(r => r.Id == usr.RoleId)?.Name).ToList()
+            var userRoles = users.ToDictionary(
+                user => user.Id,
+                user => user.Roles
+                    .Select(usr => roles.FirstOrDefault(r => r.Id == usr.RoleId)?.Name)
+                    .ToList()
             );
+
+            ViewBag.UserRoles = userRoles;
             return View(users);
         }
+
 
     }
 }
