@@ -73,8 +73,8 @@
     {
         @Html.AntiForgeryToken()
         <div class="form-actions no-color">
-            <button type="submit" class="btn btn-success">Save</button> |
-            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-success" })
+            <button type="submit" class="btn kopce">Save</button> |
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline kopce1" })
         </div>
     }
 </div>
@@ -164,5 +164,20 @@
     .control-label {
         margin-right: 80px;
     }
+
+    .kopce {
+        background-color: #2e8783;
+        color: black;
+    }
+
+        .kopce:hover {
+            background-color: #2e8783;
+            color: white;
+        }
+
+    .kopce1:hover {
+        color: #2e8783;
+    }
+
 
 </style>
