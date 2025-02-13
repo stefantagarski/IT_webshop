@@ -66,4 +66,3 @@ jobs:
           app-name: 'MioCaffee'
           slot-name: 'Production'
           package: .
-          
